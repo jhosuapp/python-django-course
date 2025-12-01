@@ -1,0 +1,11 @@
+//      -------  02 --------    //
+
+Variables:
+
+1. se recomienda usar snake case
+2. para variables privadas se inicializan con "_"
+3. para constantes se usa mayúsculas
+
+Todo esto se ha definido por la comunidad, como tal no es algo que venga con lenguaje
+
+
