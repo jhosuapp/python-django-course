@@ -8,4 +8,6 @@ Variables:
 
 Todo esto se ha definido por la comunidad, como tal no es algo que venga con lenguaje
 
+//      -------  Generales --------    //
 
+1. Todo en python es un objeto
