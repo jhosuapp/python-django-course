@@ -11,3 +11,5 @@ Todo esto se ha definido por la comunidad, como tal no es algo que venga con len
 //      -------  Generales --------    //
 
 1. Todo en python es un objeto
+2. Las tuplas son inmutables, sirve para guardar valores fijos
+3. Los sets a diferencia de los arrays y tuplas, no están organizados, o sea, no tienen indice, tampoco permite duplicados (los elimina)
