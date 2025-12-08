@@ -6,6 +6,14 @@ Variables:
 2. para variables privadas se inicializan con "_"
 3. para constantes se usa mayúsculas
 
+HOF:
+
+1. Basicamente son funciones que reciben una función como argumento o que retornan una función
+
+Functions (def)
+
+1. Cuando se declara una función a lo que se le pasa por dentro de los parentesis, se le debe decir parametros y al momento de llamar esta función rellenando los parametros, esto se llama argumentos
+
 Todo esto se ha definido por la comunidad, como tal no es algo que venga con lenguaje
 
 //      -------  Generales --------    //
