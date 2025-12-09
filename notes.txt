@@ -16,6 +16,14 @@ Functions (def)
 
 Todo esto se ha definido por la comunidad, como tal no es algo que venga con lenguaje
 
+CLASES Y OBJETOS:
+
+1. Al momento de crear una clase, la primera letra va en mayúsculas
+2. Al momento de crear los atributos (mapa/esquema) de la calase, se debe hacer sobre una función llamada __init__
+2. Para crear un atributo/metodo protegido, se debe inicializar el atributo/metodo con "_", es el estandar
+3. Para crear un atributo/metodo privado, se debe inicializar el atributo/metodo con "__", en este caso, python si interpreta que es un valor privado
+4. cuando se almacena la clase en una variable, a eso se le llama instancia
+
 //      -------  Generales --------    //
 
 1. Todo en python es un objeto
