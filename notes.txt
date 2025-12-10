@@ -23,6 +23,8 @@ CLASES Y OBJETOS:
 2. Para crear un atributo/metodo protegido, se debe inicializar el atributo/metodo con "_", es el estandar
 3. Para crear un atributo/metodo privado, se debe inicializar el atributo/metodo con "__", en este caso, python si interpreta que es un valor privado
 4. cuando se almacena la clase en una variable, a eso se le llama instancia
+5. el classmethod funciona para cambiar atributos a nivel de clase
+6. el staticmethod funciona para ejecutar funcionalidades a nivel de clase o instancia
 
 //      -------  Generales --------    //
 
