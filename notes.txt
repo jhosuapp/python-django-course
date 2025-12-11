@@ -38,4 +38,6 @@ CLASES Y OBJETOS:
 1. Ideal crear el entorno virtual para encapsular nuestro proyecto con: /opt/homebrew/bin/python3 -m venv {Nombre entorno virtual}
 2. Para activar el VENV se hace con: source {Nombre entorno virtual}/bin/activate
 3. Para desactivar el entorno virtual se usa desactivate
-4. Para inicializar un proyecto de 0 es con el siguiente comando django-admin startproject nombre_proyecto
+4. Para inicializar un proyecto de 0 es con el siguiente comando django-admin startproject nombre_proyecto y en caso de solo querer inicializarlo con la carpeta de config poner un '.' al final
+5. Para correr el proyecto se usa: python3 manage.py runserver
+6. Para crear apliaciones dentro de mi proyecto se usa: python3 manage.py startapp nombre_aplicacion
