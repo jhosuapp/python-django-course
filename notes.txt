@@ -31,6 +31,7 @@ CLASES Y OBJETOS:
 1. Todo en python es un objeto
 2. Las tuplas son inmutables, sirve para guardar valores fijos
 3. Los sets a diferencia de los arrays y tuplas, no están organizados, o sea, no tienen indice, tampoco permite duplicados (los elimina) 
+4. DTL (Django temaplte language) basicamente es un HTML con funcionalidades adicionales
 
 
 //      -------  Instalación django comandos --------    //
