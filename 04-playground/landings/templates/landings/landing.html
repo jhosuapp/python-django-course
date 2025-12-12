@@ -7,6 +7,26 @@
 </head>
 <body>
     <h1>Template home</h1>
-    <h2>Hola {{ name }}</h2>
+    
+    {% if age >= 18 %}
+        <p>Eres mayor de edad</p>
+        {% else %}
+        <p>Eres menor de edad</p>
+    {% endif %}
+        
+    <h2>Hola {{ name|default:"Invitado" }}</h2>
+    <p>Fecha: {{ today|date:"d/m/Y" }}</p>
+
+    <ul>
+        {% for item in stack %}
+            <li>
+                <a href="{% url 'stack' tool=item.id %}">
+                    <p>{{ item.name }}</p>
+                </a>
+            </li>
+        {% empty %}
+            <p>No hay tecnologías</p>
+        {% endfor %}
+    </ul>
 </body>
 </html>
