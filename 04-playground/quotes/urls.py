@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path("days-by-number/<int:day>", views.days_week_with_number),
-    path("days/<str:day>", views.days_week)
+    path("days/<str:day>", views.days_week, name='day-quote')
 ]

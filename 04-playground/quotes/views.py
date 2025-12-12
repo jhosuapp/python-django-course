@@ -1,24 +1,34 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, HttpResponseBadRequest
+from django.shortcuts import redirect
+
 
 # Create your views here.
+
+days_of_week = {
+    "monday": "monday",
+    "tuesday": "tuesday",
+    "wednesday": "wednesday",
+    "thursday": "thursday",
+    "friday": "friday",
+    "saturday": "saturday",
+    "sunday": "sunday"
+}
+
 def days_week(request, day):
-    quote_text = None
-    if(day == 'monday'):
-        quote_text = 'Pienso, luego existo'
-    elif(day == 'tuesday'):
-        quote_text = 'La vida es un sueño'
-    else:
-        return HttpResponseNotFound('No hay frase para este día.')
+    try:
+        return HttpResponse(days_of_week[day])
+    except: 
+        return HttpResponseRedirect('ese día no existe')    
     
-    return HttpResponse(quote_text)
 
 def days_week_with_number(request, day):
-    arr_days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
-    text = None
-    if(arr_days[day - 1]):
-        text = arr_days[day - 1]        
-    else:
-        return HttpResponseNotFound(f'No existe el día {day}')
-        
-    return HttpResponse(text)
+    try:
+        days = list(days_of_week.keys())
+        if day-1 > len(days):
+            # return HttpResponseRedirect('day-quote')      
+            return redirect('day-quote', day='monday')
+        else:
+            return HttpResponse(days_of_week[days[day-1]])        
+    except:
+        return HttpResponseBadRequest('Ha ocurrido un error')      
