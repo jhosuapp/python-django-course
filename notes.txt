@@ -33,6 +33,12 @@ CLASES Y OBJETOS:
 3. Los sets a diferencia de los arrays y tuplas, no están organizados, o sea, no tienen indice, tampoco permite duplicados (los elimina) 
 4. DTL (Django temaplte language) basicamente es un HTML con funcionalidades adicionales
 
+//      -------  Templates --------    //
+
+1. Crear una carpeta templates dentro de nuestra aplicación, ideal crear una subcarpeta con el nombre de la app para que django no sobrescriba otros templates con el mismo nombre
+2. registrar nuestra app en el settings.py en la constante INSTALLED_APPS o registrar la ruta en TEMPLATES.DIRS
+3. Usar el método render para renderizar el template desde la vista
+
 
 //      -------  Instalación django comandos --------    //
 
