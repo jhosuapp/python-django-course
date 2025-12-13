@@ -1,32 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template home</title>
-</head>
-<body>
-    <h1>Template home</h1>
-    
-    {% if age >= 18 %}
-        <p>Eres mayor de edad</p>
-        {% else %}
-        <p>Eres menor de edad</p>
-    {% endif %}
-        
-    <h2>Hola {{ name|default:"Invitado" }}</h2>
-    <p>Fecha: {{ today|date:"d/m/Y" }}</p>
+{% extends 'base.html' %}
 
-    <ul>
-        {% for item in stack %}
-            <li>
-                <a href="{% url 'stack' tool=item.id %}">
-                    <p>{{ item.name }}</p>
-                </a>
-            </li>
-        {% empty %}
-            <p>No hay tecnologías</p>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+
+{% block title %}
+    Landing page
+{% endblock title %}
+    
+
+{% block content %}
+    <section>
+        <h1>Template home</h1>
+
+        {% if age >= 18 %}
+            <p>Eres mayor de edad</p>
+            {% else %}
+            <p>Eres menor de edad</p>
+        {% endif %}
+            
+        <h2>Hola {{ name|default:"Invitado" }}</h2>
+        <p>Fecha: {{ today|date:"d/m/Y" }}</p>
+
+        <ul>
+            {% for item in stack %}
+                <li>
+                    <a href="{% url 'stack' tool=item.id %}">
+                        <p>{{ item.name }}</p>
+                    </a>
+                </li>
+            {% empty %}
+                <p>No hay tecnologías</p>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock content %}
+    

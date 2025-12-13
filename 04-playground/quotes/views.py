@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, HttpResponseBadRequest
 from django.shortcuts import redirect
 from django.urls import reverse
@@ -16,22 +17,34 @@ days_of_week = {
 }
 
 def index(request):
-    list_items = ''
+    list_days = []
     days = list(days_of_week.keys())
     
     for day in days:
         day_path = reverse('day-quote',  kwargs={'day': day}) 
-        list_items += f'<li><a href="{day_path}">{ day }</a></li>'
+        list_days.append({
+            "url": day_path,
+            "day": day
+        })
+    response = {
+        "days": list_days,
+        "name": "Jhosua"    
+    }
     
-    ul = f'<ul>{list_items}</ul>'
-    
-    return HttpResponse(ul)
+    return render(request, "quotes/quotes.html", response)
+
 
 def days_week(request, day):
     try:
-        return HttpResponse(days_of_week[day])
+        response = {
+            "day": days_of_week[day],
+            "name": "Jhosua"
+        }
+        
+        return render(request, "quotes/day.html", response)
     except Exception: 
-        return HttpResponseNotFound('ese día no existe')    
+        redirect_path = reverse('quotes')      
+        return HttpResponseRedirect(redirect_path)    
     
 
 def days_week_with_number(request, day):
@@ -40,8 +53,9 @@ def days_week_with_number(request, day):
         if day-1 > len(days):
             # return HttpResponseRedirect('day-quote')
             # redirect_path = reverse('day-quote',  kwargs={'day': 'monday'})      
-            return redirect('day-quote', day='monday')
+            return redirect('quote')
         else:
-            return HttpResponse(days_of_week[days[day-1]])        
-    except:
+            return redirect('day-quote', day=days_of_week[days[day-1]])        
+    except Exception as error:
+        print(error)
         return HttpResponseBadRequest('Ha ocurrido un error')      

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'landings',
+    'quotes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,6 +58,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             # BASE_DIR / 'landings' / 'templates'    
+            BASE_DIR / 'templates'  
         ],
         'APP_DIRS': True,
         'OPTIONS': {

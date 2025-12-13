@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Quotes
+{% endblock title %}
+
+
+{% block content %}
+    <h1>Hola {{ name|upper }}</h1>
+    <br>
+    <p>Listado de días:</p>
+    <ul>
+        {% for item in days %}
+            <li>
+                <a href="{{ item.url }}">
+                    {{ item.day }}
+                </a>
+            </li>
+            {% empty %}
+            <p>No se han encontrado los días de la semana</p>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+    

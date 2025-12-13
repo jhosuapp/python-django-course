@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{ day }}
+{% endblock title %}
+
+
+{% block content %}
+    <p>Hola {{ name|default:"Invitado" }}</p>
+    <p>El día de la semana es {{ day }}</p>
+{% endblock content %}
+    
+    
