@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, HttpResponseBadRequest, Http404
 from django.shortcuts import redirect
 from django.urls import reverse
 
@@ -43,9 +43,9 @@ def days_week(request, day):
         
         return render(request, "quotes/day.html", response)
     except Exception: 
-        redirect_path = reverse('quotes')      
-        return HttpResponseRedirect(redirect_path)    
-    
+        # redirect_path = reverse('quotes')      
+        # return Http404(request, '404.html')
+        raise Http404()
 
 def days_week_with_number(request, day):
     try:
