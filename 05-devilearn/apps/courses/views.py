@@ -49,7 +49,38 @@ def course_list(request):
     return render(request, 'courses/courses.html', response)
 
 def course_detail(request):
-    return render(request, 'courses/courses_detail.html')
+    course = {
+        'course_title': 'Django Aplicaciones',
+        'course_link': 'course_lessons',
+        'course_image': 'images/curso_2.jpg',
+        'course_info': {
+            'lessons': 79,
+            'duration': 8,
+            'instructor': 'Jhosua Penagos'
+        },
+        'course_content': [
+            {
+                'id': 1,
+                'name': 'Introducción al curso',
+                'lessons': [
+                    {
+                        'name': '¿Qué aprenderás en el curso?',
+                        'type': 'video'
+                    },
+                    {
+                        'name': '¿Cómo usar la plataforma?',
+                        'type': 'article'
+                    },
+                ]
+            }
+        ]
+    }
+    
+    response = {
+        'course': course
+    }
+    
+    return render(request, 'courses/courses_detail.html', response)
 
 def course_lessons(request):
     return render(request, 'courses/courses_lessons.html')
