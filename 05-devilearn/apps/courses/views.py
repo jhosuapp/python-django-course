@@ -83,4 +83,31 @@ def course_detail(request):
     return render(request, 'courses/courses_detail.html', response)
 
 def course_lessons(request):
-    return render(request, 'courses/courses_lessons.html')
+    lesson = {
+        'course_title': 'Django Aplicaciones',
+        'course_progress': 50,
+        'course_content': [
+            {
+                'id': 1,
+                'name': 'Introducción al curso',
+                'total_lessons': 6,
+                'complete_lessons': 2,
+                'lessons': [
+                    {
+                        'name': '¿Qué aprenderás en el curso?',
+                        'type': 'video'
+                    },
+                    {
+                        'name': '¿Cómo usar la plataforma?',
+                        'type': 'article'
+                    },
+                ]
+            }
+        ]
+    }
+    
+    response = {
+        'lesson': lesson
+    }
+        
+    return render(request, 'courses/courses_lessons.html', response)
