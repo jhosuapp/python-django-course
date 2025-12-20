@@ -48,3 +48,19 @@ CLASES Y OBJETOS:
 4. Para inicializar un proyecto de 0 es con el siguiente comando django-admin startproject nombre_proyecto y en caso de solo querer inicializarlo con la carpeta de config poner un '.' al final
 5. Para correr el proyecto se usa: python3 manage.py runserver
 6. Para crear apliaciones dentro de mi proyecto se usa: python3 manage.py startapp nombre_aplicacion
+
+//      -------  Modelos --------    //
+
+1. Entidad, atributo y relación
+1.1 entidad = objeto del mundo real representado en el sistema (libros, autores etc...)
+1.2 atributo = caracteristica o propiedad de la entidad (por ejemplo color del libro, total de páginas etc...)
+1.3 relación = asosiación entre entidades (por ejemplo un libro tiene un autor)
+
+2. Modelos conceptuales, logicos y físicos
+2.1 conceptual = enfocado en representar las entidades y relaciones principales sin preocuparse por detalles técnicos
+2.2 lógico = traduce el modelo conceptual a una estructura compatible con bases de datos relacionales
+2.3 físico = implementación en un motor de base de datos
+
+3.Bases de datos relacionales
+
+3.1 almancena datos en una base de datos estructurada, relacionando los datos mendiante llaves primarias y foraneas
