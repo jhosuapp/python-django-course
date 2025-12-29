@@ -48,6 +48,9 @@ CLASES Y OBJETOS:
 4. Para inicializar un proyecto de 0 es con el siguiente comando django-admin startproject nombre_proyecto y en caso de solo querer inicializarlo con la carpeta de config poner un '.' al final
 5. Para correr el proyecto se usa: python3 manage.py runserver
 6. Para crear apliaciones dentro de mi proyecto se usa: python3 manage.py startapp nombre_aplicacion
+7. Para migraciones python3 manage.py migrate  
+8. Paso previo antes de crear las migraciones python3 manage.py makemigrations {{ app_name }}
+9. Para ver las migraciones completadas/pendientes  python3 manage.py showmigrations
 
 //      -------  Modelos --------    //
 
