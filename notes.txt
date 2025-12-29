@@ -68,6 +68,16 @@ CLASES Y OBJETOS:
 
 3.1 almancena datos en una base de datos estructurada, relacionando los datos mendiante llaves primarias y foraneas
 
+
+//      -------  ORM --------    //
+
 4. ORM (Object relation mapping)
 
 4.1 Es una herramienta que permite trabajar con bases de datos usando clases u objetos en un lenguaje de promación en lugar de SQL
+
+4.2 COMANDOS
+
+4.2.1 Para ejecutar comandos del ORM desde consola se debe ingresar primero a la terminal de DJango, el comando para ingresar es python3 manage.py shell
+4.2.2 Para hacer de la terminal un poco más amigable, podemos instalar el paquete "ipython"
+4.2.3 CREAR REGISTROS DE MANERA DIRECTA - Para crear registros se hace con CLASS.objects.create(params="")
+4.2.3 CREAR REGISTROS DE MANERA INDIRECTA - Para crear registros se hace con INSTANCIA + INSTANCIA.SAVE()
