@@ -85,4 +85,18 @@ CLASES Y OBJETOS:
 4.2.5 CONSULTAR Y SI NO EXISTE CREAR - Se hace de la siguiente manera CLASS.objects.get_or_create(query, defaults={ ...params })
 4.2.5 ACTUALIZAR Y SI NO EXISTE CREAR - Se hace de la siguiente manera CLASS.objects.update_or_create(query, defaults={ ...params })
 
+4.2.6 OBTENER TODOS LOS ELEMENTOS - Se hace de la siguiente manera CLASS.object.all()
+4.2.6 OBTENER PARAMETRO ESPECIFICO - Se hace de la siguiente manera CLASS.object.get(param="")
+4.2.6 OBTENER PRIMER REGISTRO - Se hace de la siguiente manera CLASS.object.first()
+4.2.6 OBTENER ÚLTIMO REGISTRO - Se hace de la siguiente manera CLASS.object.last()
+4.2.6 ORDENAR QUERY ASC - Se hace de la siguiente manera CLASS.object.order_by('param', 'other_param')
+4.2.6 ORDENAR QUERY DESC - Se hace de la siguiente manera CLASS.object.order_by('-param')
+4.2.6 FILTRAR POR PARAMETROS - Se hace de la siguiente manera CLASS.object.filter(param="") tener en cuenta que por defecto viene el __exact en cada parametro filtrado
+Para filtrar por otros tipos de casos se debe hacer de la siguiente manera CLASS.objects.filter(param__case=""), entre esos casos están:
+    4.2.6.1 param__contains
+    4.2.6.2 param__iexact = insensitive, o sea, ignora mayúsculas y minúsculas
+    4.2.6.2 param__startswith
+    4.2.6.2 param__endswith
+4.2.6 OBTENER QUERY SQL - INSTANCIA.query
+
 https://github.com/DevTalles-corp/django-playground/blob/section-8-djangoORM/docs/section8_queries.md
