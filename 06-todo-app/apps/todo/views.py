@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 # Create your views here.
 
 def indexTodo(request):
-    return HttpResponse()
+    response = { 'test': 'test' }
+    return render(request, 'todo/index.html', response)
