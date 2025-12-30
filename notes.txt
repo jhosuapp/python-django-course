@@ -81,3 +81,8 @@ CLASES Y OBJETOS:
 4.2.2 Para hacer de la terminal un poco más amigable, podemos instalar el paquete "ipython"
 4.2.3 CREAR REGISTROS DE MANERA DIRECTA - Para crear registros se hace con CLASS.objects.create(params="")
 4.2.3 CREAR REGISTROS DE MANERA INDIRECTA - Para crear registros se hace con INSTANCIA + INSTANCIA.SAVE()
+4.2.4 CREAR REGISTROS DE MANERA MASIVA - Para crear registros se hace con CLASS.objects.bulk_create([ INSTANCIA(params="") ])
+4.2.5 CONSULTAR Y SI NO EXISTE CREAR - Se hace de la siguiente manera CLASS.objects.get_or_create(query, defaults={ ...params })
+4.2.5 ACTUALIZAR Y SI NO EXISTE CREAR - Se hace de la siguiente manera CLASS.objects.update_or_create(query, defaults={ ...params })
+
+https://github.com/DevTalles-corp/django-playground/blob/section-8-djangoORM/docs/section8_queries.md
