@@ -6,19 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <title>
-        {% block title %}
-            
-        {% endblock title %}
-    </title>
+    {% block styles %}{% endblock styles %}
+    <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
-    <main>
+    <main class="bg-[#f0f1fa] min-h-svh min-w-full flex flex-col items-center justify-center px-[5%]">
         {% block content %}
-            
+        
         {% endblock content %}
     </main>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    {% block scripts %}{% endblock scripts %}
 </body>
 </html>

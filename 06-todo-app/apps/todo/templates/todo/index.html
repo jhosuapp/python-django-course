@@ -1,10 +1,45 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}Todo app{% endblock title %}
     
-
 {% block content %}
-    <p>hola</p>
+    <section class="w-full py-10 flex flex-col items-center px-[2.5%] max-w-[1280px] bg-white rounded-md shadow-sm">
+        <article class="flex justify-between w-full items-center pb-8 flex-col lg:flex-row lg:pb-10 gap-8">
+            <h1 class="text-3xl leading-none font-bold block">
+                Todo app test
+            </h1>
+            {% include "components/button.html" with label="Crear Todo" href="#" %}
+        </article>
+        <form class="flex items-end w-full gap-4 lg:gap-6 lg:flex-row flex-col">
+            <div class="w-full">
+                <label for="first_name" class="block mb-2.5 text-sm font-medium text-heading">Buscar</label>
+                <input type="text" id="first_name" class="bg-white border border-gray-500 text-heading text-sm rounded-md shadow-xs focus:ring-brand focus:border-brand block w-full px-3 py-2.5 placeholder:text-body min-h-12" placeholder="Buscar..." required />
+            </div>
+            {% include "components/button.html" with label="Buscar" href="#" %}
+        </form>
+        <article class="flex flex-col gap-3 w-full pt-10">
+            
+            {% for todo in todos  %}
+                <a class="py-4 px-5 bg-white w-full min-h-12 rounded-md shadow-sm flex justify-betwen">
+                    <div class="flex items-center gap-2 w-full">
+                        {% if todo.is_checked %}
+                            <img class="block max-w-6 min-w-6 min-h-6" src="{% static 'img/circle-check-regular-full.svg' %}" alt="">
+                        {% else %}
+                            <div class="max-w-6 min-w-6 min-h-6 rounded-full border-2"></div>
+                        {% endif %}
+                        <p class="text-base {% if todo.is_checked %}line-through{% endif %}">{{ todo.title }}</p>
+                    </div>
+                    <img class="block max-w-6 min-w-6 min-h-6" src="{% static 'img/trash-solid-full.svg' %}" alt="">
+                </a>
+                {% empty %}
+                <div class="flex flex-col items-center justify-center gap-5 py-10">
+                    <p>No tienes TODOS, crea una</p>
+                    {% include "components/button.html" with label="Crear" href="#" %}
+                </div>
+            {% endfor %}
+                
+        </article>
+    </section>
 {% endblock content %}
     
