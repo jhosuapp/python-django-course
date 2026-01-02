@@ -6,7 +6,7 @@ user = {
 
 user['age'] = 25
 user['country'] = 'Colombia'
-print(user)
+print(user.get('age'))
 
 # values, items, keys
 print(user.items())

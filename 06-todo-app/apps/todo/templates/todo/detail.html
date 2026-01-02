@@ -9,11 +9,11 @@
             {% url 'todo' as todo_url %}
             {% include "components/button.html" with label="Volver" href=todo_url %}
             <h1 class="text-3xl leading-none font-bold block">
-                {{ title }}
+                {{ todo.title }}
             </h1>
         </article>
         <article class="flex flex-col gap-3 w-full pt-10 border-t border-gray-200">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla at voluptates neque, aperiam molestias esse odit minima eius sunt ab soluta eaque obcaecati facere non magni nostrum quibusdam nobis omnis exercitationem totam, harum placeat amet rem? Reiciendis deserunt nisi ipsum quisquam assumenda! Voluptatibus voluptatum quos nemo placeat natus dolorum enim, amet quidem perferendis porro aliquid id corrupti voluptate et aperiam quis expedita eos officiis nostrum praesentium animi? Ducimus debitis ipsa cumque deserunt rem! Illo inventore sapiente culpa hic ducimus quis ipsum! Perspiciatis similique eius non molestiae autem. Sapiente quas cumque laborum corporis eveniet, dignissimos fugit itaque dolorum qui aliquid optio possimus quasi provident quisquam voluptas omnis pariatur molestias impedit culpa ut incidunt porro. Dolorem commodi exercitationem distinctio nesciunt consectetur voluptas id totam culpa nisi. Rerum, omnis asperiores nesciunt necessitatibus voluptatibus qui? Nostrum eligendi harum ducimus quia laborum sed, laboriosam placeat, tempora illum in optio eaque dolore magni doloremque numquam! Vel nesciunt tenetur, tempore nobis enim soluta perspiciatis, nisi quidem facere eveniet quibusdam quod, beatae aspernatur molestiae assumenda corrupti nemo quae suscipit minus? Nemo aliquid amet commodi velit quia. Obcaecati quibusdam ea ipsum molestiae, animi dolorem alias quas architecto, deserunt esse, ratione error? Quos sint deserunt rerum delectus, hic aut libero odio, perferendis impedit ipsum provident asperiores. Quis minima voluptatem vitae cupiditate. Possimus iure molestiae consequatur, expedita cupiditate laboriosam dolorum, iste harum distinctio omnis deleniti maiores quia aperiam vero alias sapiente totam praesentium a eos aut nesciunt aliquam. Minima hic error temporibus, eos sit in maxime? Id saepe est qui maxime itaque sunt vitae! Ab, dolorem magni sunt suscipit odit vero ea veniam exercitationem quasi modi tenetur adipisci nesciunt voluptatibus molestias error excepturi dolor mollitia ut. Esse fugit eligendi ducimus ad deserunt deleniti vero et. Saepe, consectetur consequuntur quod eos repudiandae atque eaque reprehenderit placeat eum repellat quas voluptatum ratione in!</p>
+            <p>{{ todo.description }}</p>
         </article>
     </section>
 {% endblock content %}

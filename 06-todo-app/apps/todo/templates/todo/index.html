@@ -11,13 +11,27 @@
             </h1>
             {% include "components/button.html" with label="Crear Todo" href="#" %}
         </article>
-        <form class="flex items-end w-full gap-4 lg:gap-6 lg:flex-row flex-col">
+        <form method="get" class="flex items-end w-full gap-4 lg:gap-6 lg:flex-row flex-col">
             <div class="w-full">
-                <label for="first_name" class="block mb-2.5 text-sm font-medium text-heading">Buscar</label>
-                <input type="text" id="first_name" class="bg-white border border-gray-500 text-heading text-sm rounded-md shadow-xs focus:ring-brand focus:border-brand block w-full px-3 py-2.5 placeholder:text-body min-h-12" placeholder="Buscar..." required />
+                <label class="block mb-2.5 text-sm font-medium text-heading">Buscar</label>
+                <input
+                    type="text"
+                    name="q"
+                    value="{{ request.GET.q }}"
+                    class="bg-white border border-gray-500 text-heading text-sm rounded-md shadow-xs focus:ring-brand focus:border-brand block w-full px-3 py-2.5 placeholder:text-body min-h-12"
+                    placeholder="Buscar..."
+                />
             </div>
-            {% include "components/button.html" with label="Buscar" href="#" %}
         </form>
+        {% if request.GET.q %}
+            <article class="flex justify-between w-full items-center pt-8 flex-col lg:flex-row lg:pt-10 gap-8">
+                <p class="text-md text-gray-500">
+                    Resultados para: <strong>{{ request.GET.q }}</strong>
+                </p>
+                {% url 'todo' as todo_url %}
+                {% include "components/button.html" with label="Limpiar Búsqueda" href=todo_url %}
+            </article>
+        {% endif %}
         <article class="flex flex-col gap-3 w-full pt-10">
             
             {% for todo in todos  %}
