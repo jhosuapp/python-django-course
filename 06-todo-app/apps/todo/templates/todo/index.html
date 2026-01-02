@@ -21,7 +21,7 @@
         <article class="flex flex-col gap-3 w-full pt-10">
             
             {% for todo in todos  %}
-                <a class="py-4 px-5 bg-white w-full min-h-12 rounded-md shadow-sm flex justify-betwen">
+                <a href="{% url 'todo_detail' id=todo.id %}" class="py-4 px-5 bg-white w-full min-h-12 rounded-md shadow-sm flex justify-betwen transition-all hover:opacity-9">
                     <div class="flex items-center gap-2 w-full">
                         {% if todo.is_checked %}
                             <img class="block max-w-6 min-w-6 min-h-6" src="{% static 'img/circle-check-regular-full.svg' %}" alt="">
@@ -38,7 +38,6 @@
                     {% include "components/button.html" with label="Crear" href="#" %}
                 </div>
             {% endfor %}
-                
         </article>
     </section>
 {% endblock content %}
