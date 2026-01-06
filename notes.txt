@@ -101,6 +101,15 @@ Para filtrar por otros tipos de casos se debe hacer de la siguiente manera CLASS
 4.2.15 FILTRAR POR DICCIONARIO DE DATOS - Se hace de la siguiente manera CLASS.objct.filter(param__in=[value,value,value])
 4.2.15 FILTRAR POR MAYOR QUE O MAYOR E IGUAL - Se hace de la siguiente manera CLASS.objct.filter(param__gt=value) o CLASS.objct.filter(param__gte=value)
 4.2.15 FILTRAR POR MENOR QUE O MENOR E IGUAL - Se hace de la siguiente manera CLASS.objct.filter(param__lt=value) o CLASS.objct.filter(param__lte=value)
+4.2.15 FILTRAR POR FECHA EN CAMPOS DE TIPO DATE - Se hace de la siguiente manera CLASS.objct.filter(param=date(YYYY,MM,DD))
+4.2.15 FILTRAR POR FECHA EN OTROS TIPOS DE CAMPOS - Se hace de la siguiente manera CLASS.objct.filter(param__date=date(YYYY,MM,DD))
+4.2.15 FILTRAR POR AÑO - Se hace de la siguiente manera CLASS.objct.filter(param__year=YYYY)
+4.2.15 FILTRAR POR MES - Se hace de la siguiente manera CLASS.objct.filter(param__month=MM)
+4.2.15 FILTRAR POR DÍA - Se hace de la siguiente manera CLASS.objct.filter(param__day=DD)
+4.2.15 FILTROS ENCADENADOS - Se hace de la siguiente manera CLASS.objct.filter(param=value).filter(param=value)
+4.2.15 FILTROS EXCLUIDOS - Se hace de la siguiente manera CLASS.objct.filter(param=value).exclude(param=value)
+4.2.15 FILTROS LIMITADO - Se hace de la siguiente manera CLASS.objct.filter(param=value)[init:end]
+4.2.15 FILTROS Q - Se hace de la siguiente manera CLASS.objct.filter(Q(param=value) & Q(param=value) | (param=value))
 
 https://github.com/DevTalles-corp/django-playground/blob/section-8-djangoORM/docs/section8_queries.md
 https://www.w3schools.com/django/django_ref_field_lookups.php
