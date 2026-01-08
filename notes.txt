@@ -119,6 +119,7 @@ Para filtrar por otros tipos de casos se debe hacer de la siguiente manera CLASS
     4.2.29.4 SET_DEFAULT: Usa un valor por defecto
     4.2.29.4 DO_NOTHING: No hace nada, puede lanzar un error de integridad entre relaciones
 4.2.30 AGGREGATE: Se usa asi: CLASS.objects.aggregate(any_name_result=Count('column')) también permite usar Min, Max, Sum etc...
+4.2.30 ANNOTATE: Se usa asi: CLASS.objects.annotate(any_name_result=Count('related_name_of_model')) también permite usar Min, Max, Sum etc...
 
 https://github.com/DevTalles-corp/django-playground/blob/section-8-djangoORM/docs/section8_queries.md
 https://www.w3schools.com/django/django_ref_field_lookups.php
