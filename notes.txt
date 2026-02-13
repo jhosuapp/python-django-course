@@ -69,7 +69,7 @@ CLASES Y OBJETOS:
 3.1 almancena datos en una base de datos estructurada, relacionando los datos mendiante llaves primarias y foraneas
 
 
-//      -------  ORM --------    //
+//      -------  ORM GENERAL QUERIES --------    //
 
 4. ORM (Object relation mapping)
 
@@ -123,3 +123,19 @@ Para filtrar por otros tipos de casos se debe hacer de la siguiente manera CLASS
 
 https://github.com/DevTalles-corp/django-playground/blob/section-8-djangoORM/docs/section8_queries.md
 https://www.w3schools.com/django/django_ref_field_lookups.php
+
+
+//      -------  ORM RELACIONES ENTRE MODELOS --------    //
+
+1. RELACIONES UNO A MUCHOS
+
+1.1En una relación uno a muchos en Django, el modelo padre tiene una clave primaria (PK) única por registro.
+El modelo hijo almacena esa PK en una columna llamada llave foránea (ForeignKey), creando así la relación entre ambas tablas.
+La ForeignKey permite configurar comportamientos como qué ocurre cuando el registro padre se elimina (on_delete), cómo acceder 
+a los registros hijos desde el padre (related_name) y el modelo al cual se va a relacionar.
+
+2. RELACIONES MUCHOS A MUCHOS
+
+2.1 En una relación muchos a muchos, ambos modelos pueden existir de forma independiente.
+La relación entre ellos se gestiona mediante una tabla intermedia (tabla puente) que almacena las claves primarias (PK) de ambos
+modelos, permitiendo múltiples asociaciones entre los registros.
