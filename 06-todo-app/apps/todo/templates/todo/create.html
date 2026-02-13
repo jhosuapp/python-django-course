@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Todo app{% endblock title %}
+    
+{% block content %}
+    <section class="w-full py-10 flex flex-col items-center px-[2.5%] max-w-[1280px] bg-white rounded-md shadow-sm">
+        <article class="flex justify-between w-full items-center pb-8 flex-col lg:flex-row lg:pb-10 gap-8">
+            {% url 'todo' as todo_url %}
+            {% include "components/button.html" with label="Volver" href=todo_url %}
+            <h1 class="text-3xl leading-none font-bold block">
+                Crea tu TODO
+            </h1>
+        </article>
+        <article class="flex flex-col gap-3 w-full pt-10 border-t border-gray-200">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, repellendus.</p>
+            <form method="POST" class="flex flex-col gap-4 w-full">
+                {% csrf_token %}
+                
+                <div>
+                    <label class="block font-medium mb-1">Título</label>
+                    {{ form.title }}
+                    {% if form.title.errors %}
+                        <p class="text-red-500 text-sm">{{ form.title.errors }}</p>
+                    {% endif %}
+                </div>
+            
+                <div>
+                    <label class="block font-medium mb-1">Descripción</label>
+                    {{ form.description }}
+                    {% if form.description.errors %}
+                        <p class="text-red-500 text-sm">{{ form.description.errors }}</p>
+                    {% endif %}
+                </div>
+            
+                <div class="flex items-center gap-2">
+                    {{ form.is_checked }}
+                    <label>¿Completado?</label>
+                </div>
+            
+                <button 
+                    type="submit"
+                    class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+                >
+                    Guardar TODO
+                </button>
+            </form>
+        </article>
+    </section>
+{% endblock content %}
