@@ -23,6 +23,7 @@ class Book(models.Model):
     pages = models.IntegerField()
     isbn = models.CharField(max_length=50)
     genres = models.ManyToManyField(Genre, related_name='books')
+    recommended_by = models.ManyToManyField(get_user_model(), through="Recommendation", related_name="recommendations")
     
     def __str__(self):
         return self.title
@@ -42,4 +43,22 @@ class Review(models.Model):
     
     def __str__(self):
         return f"{self.user} - {self.book.title}"
+
+class Loan(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='Loans')
+    loan_date = models.DateTimeField(auto_now_add=True)
+    return_date = models.DateTimeField(null=True, blank=True)
+    is_return = models.BooleanField(default=False)
     
+    def __str__(self):
+        return f"{self.user} - {self.book.title} ({'Devuelvo' if self.is_return else 'Prestado'})"
+    
+class Recommendation(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    recommended_at = models.DateTimeField(auto_now_add=True)
+    note = models.TextField(blank=True)
+    
+    class Meta:
+        unique_together = ("user", "book")

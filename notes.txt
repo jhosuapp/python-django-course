@@ -163,3 +163,10 @@ OneToOneField, el cual recibe los mismos parametros.
 6.3 creación de usuario:
  6.4 Instanciamos el user User = get_user_model()
  6.5 Usamos create_user  User.objects.create_user()
+
+7. through TABLA INTERMEDIA PERSONALIZADA EN RELACIONES ManyToMany
+
+7.1 Este metodo nos permite definir un modelo custom con datos adicionales además de las llaves foraneas en la tabla puente de relaciones
+7.2 Para usarla es facil, una vez creado el modelo custom, se debe añadir manualmente como llaves foraneas los dos modelos a relacionarse, luego
+puede añadir los campos que quiera y por último debes añadir la relación en la tabla correspondiente de la siguiente manera:
+models.ManyToManyField(CLASS_MODEL, through="CUSTOM_CLASS_MODEL", related_name="CUSTOM_RELATED_NAME")
