@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'quotes',
     'minilibrary',
     'singers',
-    'school',
+    'courses',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

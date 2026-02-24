@@ -139,3 +139,27 @@ a los registros hijos desde el padre (related_name) y el modelo al cual se va a 
 2.1 En una relación muchos a muchos, ambos modelos pueden existir de forma independiente.
 La relación entre ellos se gestiona mediante una tabla intermedia (tabla puente) que almacena las claves primarias (PK) de ambos
 modelos, permitiendo múltiples asociaciones entre los registros.
+
+3. Relaciones UNO A UNO
+
+2.1 Funciona igual que la relación Uno a muchos, con la diferencia de que en vez de usar el meteodo "ForeignKey" se usa el metodo
+OneToOneField, el cual recibe los mismos parametros.
+
+
+4. SELECT_RELATED(OneToOne y ForeignKey)
+
+4.1 Esto ayuda a evitar la duplicidad de nuestras consultas y traer las relaciones necesarias en una sola consulta
+4.2 Este metodo solo funciona para relaciones One to One y One to Many
+4.3 Se usa de la siguiente manera: CLASS.objects.select_related("name_related");
+
+5. PREFECTH_RELATED(ManyToMany)
+
+5.1 Esto ayuda a evitar la duplicidad de nuestras consultas y traer las relaciones necesarias en una sola consulta
+
+6. USER MODEL DJango
+
+6.1 Esta es la manera correcta de importar la funcionalidad de autenticación ya sea custom o nativa de django from django.contrib.auth import get_user_model
+6.2 Desde nuestro settings podemos modificar nuestra config para autenticación
+6.3 creación de usuario:
+ 6.4 Instanciamos el user User = get_user_model()
+ 6.5 Usamos create_user  User.objects.create_user()
