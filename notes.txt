@@ -170,3 +170,8 @@ OneToOneField, el cual recibe los mismos parametros.
 7.2 Para usarla es facil, una vez creado el modelo custom, se debe añadir manualmente como llaves foraneas los dos modelos a relacionarse, luego
 puede añadir los campos que quiera y por último debes añadir la relación en la tabla correspondiente de la siguiente manera:
 models.ManyToManyField(CLASS_MODEL, through="CUSTOM_CLASS_MODEL", related_name="CUSTOM_RELATED_NAME")
+
+8. SEEDS
+
+8.1 Es una manera de insertar datos dummy o una config inicial en la base de datos de manera optimizada
+8.2 Es fácil, solo debes ejecutar lo siguiente python3 manage.py shell < seeds/SEEDER_NAME.py
