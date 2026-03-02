@@ -175,3 +175,15 @@ models.ManyToManyField(CLASS_MODEL, through="CUSTOM_CLASS_MODEL", related_name="
 
 8.1 Es una manera de insertar datos dummy o una config inicial en la base de datos de manera optimizada
 8.2 Es fácil, solo debes ejecutar lo siguiente python3 manage.py shell < seeds/SEEDER_NAME.py
+
+
+//      -------  DJANGO ADMIN --------    //
+
+1. SUPER USUARIO
+
+1.1 Para crear un super usuario, se hace con el siguiente comando python3 manage.py createsuperuser
+
+2 REGISTRO MODELOS EN DJANGO ADMIN
+
+2.1 Existe un archivo llamado admin.py en cada una de nuestras aplicaciones, aqui se debe importar nuestros modelos custom y luego se deben registrar de la siguiente
+manera para que se vean reflejados en nuestro admin: admin.site.register(MODEL_NAME)
