@@ -187,3 +187,9 @@ models.ManyToManyField(CLASS_MODEL, through="CUSTOM_CLASS_MODEL", related_name="
 
 2.1 Existe un archivo llamado admin.py en cada una de nuestras aplicaciones, aqui se debe importar nuestros modelos custom y luego se deben registrar de la siguiente
 manera para que se vean reflejados en nuestro admin: admin.site.register(MODEL_NAME)
+
+2.2 También podemos personalizar la visualización de nuestro modelo en el admin, añadiendo filtros, mas datos en columna, buscador etc... lo que debemos hacer es lo siguiente:
+    2.2.1 Crear una clase con el nombre de nuestro modelo seguido de "Admin" pasandole admin.ModelAdmin, algo así: ModelAdmin(admin.ModelAdmin): ....
+    2.2.2 Adentro de la clase añadiremos si tiene filtros, buscador etc...
+    2.2.3 cuando hacemos el registro de nuestro modelo, podemos pasar esta nueva clase como argumento, de la siguiente manera admin.site.register(MODEL_NAME, ModelAdmin)
+    2.2.4 también se puede añadir esta personalización por medio de un decorador
