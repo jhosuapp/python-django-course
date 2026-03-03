@@ -1,9 +1,20 @@
 from django.contrib import admin
-from .models import Author, Genre, Book, BookDetail, Review, Loan
+from .models import Author, Genre, Book, BookDetail, Review, Loan, Recommendation
 
 # Register your models here.
+
+class ReviewInline(admin.TabularInline):
+    model = Review
+    extra = 1
+    
+class BookDetailInline(admin.StackedInline):
+    model = BookDetail
+    can_delete = False
+    verbose_name_plural = "Detalle de libro"
+
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
+    inlines = [BookDetailInline, ReviewInline]
     list_display = ('title', 'author', 'pages', 'publication_date')
     search_fields = ('title', 'author__name')
     list_filter = ('author', 'genres', 'publication_date')
@@ -16,3 +27,4 @@ admin.site.register(Genre)
 admin.site.register(BookDetail)
 admin.site.register(Review)
 admin.site.register(Loan)
+admin.site.register(Recommendation)

@@ -38,6 +38,10 @@ class BookDetail(models.Model):
     language = models.CharField()
     book = models.OneToOneField(Book, on_delete=models.CASCADE, related_name='detail')
     
+    class Meta:
+        verbose_name = "Detalle libro"
+        verbose_name_plural = "Detalle libros"
+    
 class Review(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='reviews')
