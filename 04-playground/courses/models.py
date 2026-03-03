@@ -34,3 +34,6 @@ class Courses(models.Model):
     students = models.ManyToManyField(Student, related_name="courses")
     categories = models.ManyToManyField(Category, related_name="courses")
     
+    def __str__(self):
+        return self.title
+    

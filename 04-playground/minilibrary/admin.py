@@ -1,7 +1,14 @@
 from django.contrib import admin
 from .models import Author, Genre, Book, BookDetail, Review, Loan, Recommendation
-
+from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # Register your models here.
+
+User = get_user_model()
+
+class LoanInline(admin.TabularInline):
+    model = Loan
+    extra = 1
 
 class ReviewInline(admin.TabularInline):
     model = Review
@@ -20,11 +27,39 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ('author', 'genres', 'publication_date')
     ordering = ['publication_date']
     date_hierarchy = 'publication_date'
+    
+    fieldsets = (
+        ('Información general', {
+            "fields": ("title", "author", "publication_date", "genres")
+        }),
+        ('Detalles',{
+            "fields": ("isbn", "pages"),
+            "classes": ("collapse", )
+        })
+    )
+    
+class CustomUserAdmin(BaseUserAdmin):
+    inlines = [LoanInline]
+    list_display = ("username", "email")
 
-admin.site.register(Author)
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('name', 'birth_date')
+    search_fields = ('name', )
+    
+@admin.register(Loan)
+class LoanAdmin(admin.ModelAdmin):
+    readonly_fields = ('loan_date', )
+    list_display = ('user', 'book', 'loan_date', 'is_return')
+        
 admin.site.register(Genre)
-# admin.site.register(Book, BookAdmin)
 admin.site.register(BookDetail)
 admin.site.register(Review)
-admin.site.register(Loan)
 admin.site.register(Recommendation)
+
+try:
+    admin.site.unregister(User)
+except admin.sites.NotRegistered:
+    pass
+
+admin.site.register(User, CustomUserAdmin)
