@@ -13,7 +13,7 @@ class ProfessorInline(admin.TabularInline):
 
 class CoursesAdmin(admin.ModelAdmin):
     search_fields = ('title',)
-    list_display = ('title', 'description', 'teacher__name')
+    list_display = ('title', 'description', 'teacher')
     
 class StudentAdmin(admin.ModelAdmin):
     inlines = [StudentInline]

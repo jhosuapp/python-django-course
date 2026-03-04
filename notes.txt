@@ -199,6 +199,11 @@ manera para que se vean reflejados en nuestro admin: admin.site.register(MODEL_N
     3.2.1 Crear una clase con el nombre de nuestro modelo seguido de "Inline", pasandole admin.TabularInline, algo así: ModelInline(admin.TabularInline)
     3.2.2 dentro de esta clase debemos añadir el modelo de la siguiente manera "model = MODEL_NAME"
     3.2.3 una vez creada nuestra clase Inline, se debe relacionar en nuestro custom ModelAdmin bajo el siguiente parametro "inlines = [ModelInline]"
+3.3 También podemos añadir acciones masivas personalizadas de la siguiente manera:
+    3.3.1 Debemos inicializar nuestro decorador @admin.action(description="aqui va la descripción de la acción")
+    3.3.2 Luego definimos una función con un nombre descriptivo de nuestra acción, esta función recibe 3 parametros los cuales
+    están predefinidos funcion_descriptiva_accion(modeladmin, request, queryset)
+    3.3.3 La función previamente definida la debemos pasar como un nuevo valor en nustro custom modelAdmin, bajo la llave "actions = [funcion_descriptiva_accion]"
 
 4. MAS ATRIBUTOS META
 
@@ -206,3 +211,13 @@ manera para que se vean reflejados en nuestro admin: admin.site.register(MODEL_N
     class Meta:
         verbose_name = "Libro"
         verbose_name_plural = "Libros"
+
+5. PERSONALICAZIONES
+
+5.1 Se pueden crear filtros personalizados
+5.2 Se pueden crear un buscador indicando los campos en los cuales hara la busqueda
+5.3 Se pueden listar los registros con los parametros que queramos
+5.4 Se pueden marcar read only los campos que queramos
+5.5 Se pueden relacionar los campos de relación en un modelo padre
+5.6 Se pueden reorganizar los campos
+5.7 Se puede añadir autocomplete a campos con muchos registros
